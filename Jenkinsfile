@@ -9,7 +9,7 @@ pipeline {
                 sh 'ls'
                 sh 'cat head.txt >  index.html'
                 sh 'cat body.txt >> index.html'
-                sh 'echo Version: 8.0."$BUILD_NUMBER" >> index.html'
+                sh 'echo Version: 9.0."$BUILD_NUMBER" >> index.html'
                 sh 'cat html-end.txt >> index.html'
                 sh 'cat index.html'
             }
