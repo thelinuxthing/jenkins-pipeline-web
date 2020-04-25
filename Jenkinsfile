@@ -7,16 +7,16 @@ pipeline {
                 sh 'ls'
                 sh 'rm -f index.html'
                 sh 'ls'
-                sh 'cat jenkins-pipeline-web/head.txt >  jenkins-pipeline-web/index.html'
-                sh 'cat jenkins-pipeline-web/body.txt >> jenkins-pipeline-web/index.html'
-                sh 'echo Version: 8.0."$BUILD_NUMBER" >> jenkins-pipeline-web/index.html'
-                sh 'cat jenkins-pipeline-web/html-end.txt >> jenkins-pipeline-web/index.html'
-                sh 'cat jenkins-pipeline-web/index.html'
+                sh 'cat head.txt >  index.html'
+                sh 'cat body.txt >> index.html'
+                sh 'echo Version: 8.0."$BUILD_NUMBER" >> index.html'
+                sh 'cat html-end.txt >> index.html'
+                sh 'cat index.html'
             }
         }
         stage('9.3 deploy to vm1.arthar360.de') {
             steps {
-                sh 'scp -P 2222 jenkins-pipeline-web/index.html root@vm1.arthar360.de:/var/www/html/jenkins-demo/index.html'
+                sh 'scp -P 2222 index.html root@vm1.arthar360.de:/var/www/html/jenkins-demo/index.html'
             }
         }
     }
