@@ -18,6 +18,7 @@ pipeline {
             steps {
                 sh 'docker build . --tag web-server-httpd:v1'
                 sh 'docker stop web-server-httpd'
+                sh 'docker rm web-server-httpd'
                 sh 'docker run -d -n web-server-httpd -p 80:80 web-server-httpd:v1'
             }
         }
