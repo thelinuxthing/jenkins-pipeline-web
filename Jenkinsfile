@@ -1,5 +1,5 @@
 pipeline {
-    agent ubuntu
+    agent { label 'ubuntu'}
     stages {
         // Stage 9.1 is removed because we are using Pipeline with SCM
         stage('10.2 build html file') {
